@@ -1,0 +1,19 @@
+{
+  "name": "apply-4-me",
+  "version": "1.0.0",
+  "description": "apply4me passport & visa service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dewanwakilahmed/apply-4-me.git"
+  },
+  "author": "Dewan Wakil Ahmed",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/dewanwakilahmed/apply-4-me/issues"
+  },
+  "homepage": "https://github.com/dewanwakilahmed/apply-4-me#readme"
+}
