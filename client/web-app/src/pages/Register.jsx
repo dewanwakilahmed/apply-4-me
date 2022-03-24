@@ -1,4 +1,6 @@
 import { useState } from "react";
+
+// Icons
 import { FaUser } from "react-icons/fa";
 
 const Register = () => {
@@ -28,7 +30,7 @@ const Register = () => {
         <h1>
           <FaUser /> Register
         </h1>
-        <p>Create an account for an individual user.</p>
+        <p>Create an account for an individual user</p>
       </section>
 
       <section className="form">
@@ -79,7 +81,7 @@ const Register = () => {
           </div>
           <div className="form-group">
             <button type="submit" className="btn btn-block">
-              Submit
+              Register User
             </button>
           </div>
         </form>
