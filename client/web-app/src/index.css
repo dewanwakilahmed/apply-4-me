@@ -26,22 +26,22 @@ ul {
 
 li {
   line-height: 2.2;
-  background-color: black;
+  /* background-color: black;
   padding: 0.35em 0.7em;
   border-radius: 0.75em;
   -webkit-box-shadow: 0px 0px 5px 0px black;
-  box-shadow: 0px 0px 5px 0px black;
+  box-shadow: 0px 0px 5px 0px black; */
 }
 
-li:hover {
+/* li:hover {
   background-color: rgb(10, 10, 10);
   -webkit-box-shadow: 0px 0px 10px 0px black;
   box-shadow: 0px 0px 10px 0px black;
-}
+} */
 
-.nav-link {
+/* .nav-link {
   color: white;
-}
+} */
 
 h1,
 h2,
