@@ -5,11 +5,15 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
+// Components
+import Header from "./components/Header";
+
 function App() {
   return (
     <>
       <Router>
         <div className="container">
+          <Header />
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/" element={<Login />} />
