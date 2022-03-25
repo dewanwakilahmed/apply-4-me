@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "server": "nodemon index"
+    "server": "nodemon index",
+    "client-web-app": "npm start --prefix client/web-app",
+    "dev": "concurrently \"npm run server\" \"npm run client-web-app\""
   },
   "repository": {
     "type": "git",
