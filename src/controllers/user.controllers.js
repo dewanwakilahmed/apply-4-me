@@ -19,7 +19,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
 
   // Check Required Fields
-  if ((!name, !email, !password)) {
+  if (!name || !email || !password) {
     res.status(400);
     throw new Error("Please add all required fields");
   }
@@ -44,8 +44,8 @@ const registerUser = asyncHandler(async (req, res) => {
 
   if (user) {
     console.log(
-      `New User Created. Name: ${user.name} Email: ${user.email}`.brightGreen
-        .underline
+      `User Registration SUCCESSFUL. Name: ${user.name} Email: ${user.email}`
+        .brightGreen.underline
     );
 
     res.status(201).json({
@@ -56,16 +56,55 @@ const registerUser = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(400);
-    throw new Error(
-      "User account could not be created. Please try again with new user data"
-    );
+    console.log("ERROR: User Registration UNSUCCESFUL".brightRed.underline);
+    throw new Error("Please try again with valid user data");
   }
 });
 
 // @desc    Login (Authenticate) User
 // @route   POST api/user/login
 // @access  Public
-const loginUser = asyncHandler(async (req, res) => {});
+const loginUser = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+
+  // Check for Required Fields
+  if (!email || !password) {
+    res.status(400);
+    throw new Error("Please add all required fields");
+  }
+
+  // Check if User Exists
+  const user = await User.findOne({ email });
+
+  // Verify Password & Authenticate
+  if (user) {
+    const isPasswordVerified = await bcrypt.compare(password, user.password);
+
+    if (isPasswordVerified) {
+      console.log(
+        `User Authentication SUCCESSFUL. Name: ${user.name} Email: ${user.email}`
+          .brightGreen.underline
+      );
+
+      res.status(201).json({
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        token: generateJWT(user.id),
+      });
+    } else {
+      res.status(400);
+      console.log(
+        "ERROR: User Authentication UNSUCCESSFUL".brightRed.underline
+      );
+      throw new Error("Invalid Credentials");
+    }
+  } else {
+    res.status(400);
+    console.log("ERROR: User Authentication UNSUCCESSFUL".brightRed.underline);
+    throw new Error("Invalid Credentials");
+  }
+});
 
 module.exports = {
   registerUser,
