@@ -9,6 +9,9 @@ const {
   getAuthenticatedUser,
 } = require("../controllers/user.controllers");
 
+// Middlewares
+const { protectRoute } = require("../middlewares/authorization.middleware");
+
 // Register User Route
 router.post("/", registerUser);
 
@@ -16,6 +19,6 @@ router.post("/", registerUser);
 router.post("/login", loginUser);
 
 // Fetch Authenticated (Logged In) User
-router.get("/", getAuthenticatedUser);
+router.get("/", protectRoute, getAuthenticatedUser);
 
 module.exports = router;

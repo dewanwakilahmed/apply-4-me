@@ -10,7 +10,9 @@ const { generateJWT } = require("../utils/generateJWT.util");
 // @desc    Fetch Authenticated User
 // @route   GET api/user
 // @access  Private
-const getAuthenticatedUser = asyncHandler(async (req, res) => {});
+const getAuthenticatedUser = asyncHandler(async (req, res) => {
+  res.status(200).json(req.user);
+});
 
 // @desc    Register User
 // @route   POST api/user/

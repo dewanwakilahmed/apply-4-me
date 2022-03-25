@@ -23,14 +23,18 @@ const protectRoute = asyncHandler(async (req, res, next) => {
 
       next();
     } catch (err) {
-      console.log(err.message.brightRed.underline);
+      console.log(
+        "Authorization DENIED: ".brightRed.underline +
+          err.message.brightRed.underline
+      );
       res.status(401);
-      throw new Error("Not Authorized");
+      throw new Error("Authorization DENIED");
     }
   }
 
   if (!token) {
     res.status(401);
+    console.log("Authorization DENIED: No Token".brightRed.underline);
     throw new Error("Auth Token NOT found");
   }
 });
