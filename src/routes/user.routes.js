@@ -2,6 +2,7 @@ const express = require("express");
 
 const router = express.Router();
 
+// Controllers
 const {
   registerUser,
   loginUser,
@@ -11,7 +12,7 @@ const {
 // Register User Route
 router.post("/", registerUser);
 
-// Login User Route
+// Login (Authenticate) User Route
 router.post("/login", loginUser);
 
 // Fetch Authenticated (Logged In) User

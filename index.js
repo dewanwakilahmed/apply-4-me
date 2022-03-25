@@ -20,7 +20,6 @@ connectDB();
 // Initialize Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(errorHandler);
 
 // Serve on Home Root
 app.get("/", (req, res) =>
@@ -29,6 +28,9 @@ app.get("/", (req, res) =>
 
 // apply4me Server Routes
 app.use("/api/user", userRoutes);
+
+// Error Handler Middleware
+app.use(errorHandler);
 
 // PORT
 const PORT = process.env.PORT || 5000;
