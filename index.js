@@ -8,6 +8,9 @@ const connectDB = require("./src/configs/db.config");
 // Routes
 const userRoutes = require("./src/routes/user.routes.js");
 
+// Middlewares
+const { errorHandler } = require("./src/middlewares/errorHandler.middleware");
+
 // Initialize App
 const app = express();
 
@@ -17,6 +20,7 @@ connectDB();
 // Initialize Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(errorHandler);
 
 // Serve on Home Root
 app.get("/", (req, res) =>
