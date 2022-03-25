@@ -4,6 +4,8 @@ const colors = require("colors");
 
 const connectDB = require("./src/configs/db.config");
 
+const userRoutes = require("./src/routes/user.routes.js");
+
 // Initialize App
 const app = express();
 
@@ -14,6 +16,9 @@ connectDB();
 app.get("/", (req, res) =>
   res.send("apply4me App API is running and is ready to process requests.")
 );
+
+// apply4me Server Routes
+app.use("/api/user", userRoutes);
 
 // PORT
 const PORT = process.env.PORT || 5000;
