@@ -2,6 +2,9 @@
   "name": "apply-4-me",
   "version": "1.0.0",
   "description": "apply4me passport & visa service",
+  "engines": {
+    "node": "16.13.2"
+  },
   "main": "index.js",
   "scripts": {
     "start": "node index",
