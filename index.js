@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv").config();
 const colors = require("colors");
@@ -22,9 +23,19 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Serve on Home Root
-app.get("/", (req, res) =>
-  res.send("apply4me App API is running and is ready to process requests.")
-);
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "./client/web-app/build")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(
+      path.resolve(__dirname, "./", "client", "web-app", "build", "index.html")
+    );
+  });
+} else {
+  app.get("/", (req, res) =>
+    res.send("apply4me App API is running and is ready to process requests.")
+  );
+}
 
 // apply4me Server Routes
 app.use("/api/user", userRoutes);
