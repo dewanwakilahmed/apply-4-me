@@ -7,13 +7,13 @@ const Header = () => {
   return (
     <header className="header">
       <div className="logo">
-        <Link to="/">
+        <Link to="/dashboard">
           <p>apply4me</p>
         </Link>
       </div>
       <ul>
         <li>
-          <Link to="/login" className="nav-link">
+          <Link to="/" className="nav-link">
             <FaSignInAlt /> Login
           </Link>
         </li>

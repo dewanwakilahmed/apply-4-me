@@ -1,7 +1,16 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
+// Redux Toolkit
+import { registerUser, reset } from "../features/auth/authSlice";
 
 // Icons
 import { FaUser } from "react-icons/fa";
+
+// Components
+import Spinner from "../components/Spinner";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +22,25 @@ const Register = () => {
 
   const { name, email, password, password2 } = formData;
 
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  );
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message);
+    }
+
+    if (isSuccess || user) {
+      navigate("/dashboard");
+    }
+
+    dispatch(reset());
+  }, [user, isError, isSuccess, message, navigate, dispatch]);
+
   const changeHandler = (e) => {
     setFormData((prevState) => ({
       ...prevState,
@@ -22,7 +50,23 @@ const Register = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+
+    if (password === password2) {
+      const userRegistrationData = {
+        name,
+        email,
+        password,
+      };
+
+      dispatch(registerUser(userRegistrationData));
+    } else {
+      toast.error("Passwords do not match");
+    }
   };
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <>
@@ -30,7 +74,7 @@ const Register = () => {
         <h1>
           <FaUser /> Register
         </h1>
-        <p>Create an account for an individual user</p>
+        <p>Create an account for a new user</p>
       </section>
 
       <section className="form">
@@ -75,7 +119,7 @@ const Register = () => {
               id="password2"
               value={password2}
               placeholder="Confirm Password"
-              onSubmit={changeHandler}
+              onChange={changeHandler}
               className="form-control"
             />
           </div>

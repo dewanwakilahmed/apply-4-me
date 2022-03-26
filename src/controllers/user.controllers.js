@@ -46,7 +46,7 @@ const registerUser = asyncHandler(async (req, res) => {
 
   if (user) {
     console.log(
-      `User Registration SUCCESSFUL. Name: ${user.name} Email: ${user.email}`
+      `User Registration SUCCESSFUL. Name:${user.name} Email:${user.email}`
         .brightGreen.underline
     );
 
@@ -84,7 +84,7 @@ const loginUser = asyncHandler(async (req, res) => {
 
     if (isPasswordVerified) {
       console.log(
-        `User Authentication SUCCESSFUL. Name: ${user.name} Email: ${user.email}`
+        `User Authentication SUCCESSFUL. Name:${user.name} Email:${user.email}`
           .brightGreen.underline
       );
 
