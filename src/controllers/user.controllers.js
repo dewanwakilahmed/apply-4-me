@@ -7,15 +7,8 @@ const User = require("../models/user.model");
 // Utils
 const { generateJWT } = require("../utils/generateJWT.util");
 
-// @desc    Fetch Authenticated User
-// @route   GET api/user
-// @access  Private
-const getAuthenticatedUser = asyncHandler(async (req, res) => {
-  res.status(200).json(req.user);
-});
-
 // @desc    Register User
-// @route   POST api/user/
+// @route   POST api/user/register
 // @access  Public
 const registerUser = asyncHandler(async (req, res) => {
   const { name, email, password } = req.body;
@@ -64,7 +57,7 @@ const registerUser = asyncHandler(async (req, res) => {
 });
 
 // @desc    Login (Authenticate) User
-// @route   POST api/user/login
+// @route   POST api/user
 // @access  Public
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -106,6 +99,13 @@ const loginUser = asyncHandler(async (req, res) => {
     console.log("ERROR: User Authentication UNSUCCESSFUL".brightRed.underline);
     throw new Error("Invalid Credentials");
   }
+});
+
+// @desc    Fetch Authenticated User
+// @route   GET api/user
+// @access  Private
+const getAuthenticatedUser = asyncHandler(async (req, res) => {
+  res.status(200).json(req.user);
 });
 
 module.exports = {

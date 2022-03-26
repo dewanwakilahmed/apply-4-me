@@ -13,10 +13,10 @@ const {
 const { protectRoute } = require("../middlewares/authorization.middleware");
 
 // Register User Route
-router.post("/", registerUser);
+router.post("/register", registerUser);
 
 // Login (Authenticate) User Route
-router.post("/login", loginUser);
+router.post("/", loginUser);
 
 // Fetch Authenticated (Logged In) User
 router.get("/", protectRoute, getAuthenticatedUser);
