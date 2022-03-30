@@ -62,7 +62,7 @@ h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 12.5px 0;
   border-bottom: 1px solid #e6e6e6;
   margin-bottom: 60px;
 }
@@ -131,6 +131,10 @@ h3 {
 
 .form-group {
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .form-group input,
@@ -151,19 +155,31 @@ h3 {
 }
 
 .btn {
-  padding: 10px 20px;
-  border: 1px solid #000;
+  padding: 10px 25px;
+  border: none;
+  outline: none;
   border-radius: 5px;
-  background: #000;
-  color: #fff;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   cursor: pointer;
   text-align: center;
-  appearance: button;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.btn-blue {
+  background-color: #3370f6;
+  color: #fff;
+  box-shadow: 0px 0px 5px 0px #3370f6;
+  -webkit-box-shadow: 0px 0px 5px 0px #3370f6;
+  -moz-box-shadow: 0px 0px 5px 0px #3370f6;
+}
+
+.btn-blue:hover {
+  box-shadow: 0px 0px 10px 0px #3370f6;
+  -webkit-box-shadow: 0px 0px 10px 0px #3370f6;
+  -moz-box-shadow: 0px 0px 10px 0px #3370f6;
 }
 
 .btn svg {
@@ -175,14 +191,10 @@ h3 {
   color: #000;
 }
 
-.btn-block {
+/* .btn-block {
   width: 100%;
   margin-bottom: 20px;
-}
-
-.btn:hover {
-  transform: scale(0.98);
-}
+} */
 
 .loadingSpinnerContainer {
   position: fixed;

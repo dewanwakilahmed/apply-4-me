@@ -37,18 +37,7 @@ const Header = () => {
             </button>
           </li>
         ) : (
-          <>
-            <li>
-              <Link to="/" className="nav-link">
-                <FaSignInAlt /> Login
-              </Link>
-            </li>
-            <li>
-              <Link to="/register" className="nav-link">
-                <FaUser /> Register
-              </Link>
-            </li>
-          </>
+          <></>
         )}
       </ul>
     </header>
