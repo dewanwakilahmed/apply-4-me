@@ -22,7 +22,7 @@ const Register = () => {
   const { name, email, password, password2 } = formData;
   const dispatch = useDispatch();
 
-  const { isLoading, isSuccess, isError, message } = useSelector(
+  const { user, isLoading, isSuccess, isError, message } = useSelector(
     (state) => state.auth
   );
 
@@ -63,6 +63,10 @@ const Register = () => {
 
   if (isLoading) {
     return <Spinner />;
+  }
+
+  if (user.email !== "admin@admin.com") {
+    return toast.error("Unauthorized");
   }
 
   return (
