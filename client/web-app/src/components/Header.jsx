@@ -4,6 +4,9 @@ import { useSelector, useDispatch } from "react-redux";
 // Redux Toolkit
 import { logoutUser, reset } from "../features/auth/authSlice";
 
+// Logos
+import Logo from "../assets/logos/apply4me-logo-web.png";
+
 // Icons
 import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
 
@@ -23,7 +26,7 @@ const Header = () => {
     <header className="header">
       <div className="logo">
         <Link to="/dashboard">
-          <p>apply4me</p>
+          <img src={Logo} alt="Company Logo" className="company-logo" />
         </Link>
       </div>
       <ul>
