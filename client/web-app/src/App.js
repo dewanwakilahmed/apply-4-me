@@ -22,9 +22,10 @@ function App() {
         <div className="container">
           <Header />
           <Routes>
-            <Route path="/" element={<Login />} />
-            <Route path="dashboard" element={<Dashboard />}>
-              <Route path="" element={<SearchDeliver />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="" element={<Dashboard />}>
+              <Route index element={<SearchDeliver />} />
+              <Route path="search-n-deliver" element={<SearchDeliver />} />
               <Route
                 path="upload-application"
                 element={<UploadApplication />}

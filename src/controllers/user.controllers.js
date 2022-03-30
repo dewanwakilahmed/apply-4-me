@@ -43,12 +43,7 @@ const registerUser = asyncHandler(async (req, res) => {
         .brightGreen.underline
     );
 
-    res.status(201).json({
-      id: user.id,
-      name: user.name,
-      email: user.email,
-      token: generateJWT(user.id),
-    });
+    res.status(201).json({ successMsg: "New User Registered!" });
   } else {
     res.status(400);
     console.log("ERROR: User Registration UNSUCCESFUL".brightRed.underline);

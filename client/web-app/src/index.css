@@ -77,8 +77,8 @@ h3 {
 }
 
 .header__nav-item {
-  background-color: #ef6914;
-  color: white;
+  background-color: lightgray;
+  color: black;
   padding: 5px 10px;
   border-radius: 5px;
   transition: 0.3s;
@@ -192,6 +192,11 @@ h3 {
   box-shadow: 0px 0px 5px 0px #3370f6;
   -webkit-box-shadow: 0px 0px 5px 0px #3370f6;
   -moz-box-shadow: 0px 0px 5px 0px #3370f6;
+}
+
+.btn-gray:hover {
+  background-color: gray;
+  color: white;
 }
 
 .btn svg {

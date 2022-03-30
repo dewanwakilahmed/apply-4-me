@@ -19,27 +19,24 @@ const Header = () => {
   const logoutHandler = () => {
     dispatch(logoutUser());
     dispatch(reset());
-    navigate("/");
+    navigate("/login");
   };
 
   return (
     <header className="header">
       <div className="logo">
-        <Link to="/dashboard">
+        <Link to="">
           <img src={Logo} alt="Company Logo" className="company-logo" />
         </Link>
       </div>
       <nav className="header__nav">
         {user ? (
           <>
-            <NavLink to="/dashboard" className="header__nav-item">
+            <NavLink to="" className="header__nav-item">
               <FaSearch />
               Search & Deliver
             </NavLink>
-            <NavLink
-              to="/dashboard/upload-application"
-              className="header__nav-item"
-            >
+            <NavLink to="upload-application" className="header__nav-item">
               <FaUpload />
               Upload Application
             </NavLink>
@@ -48,13 +45,13 @@ const Header = () => {
           <></>
         )}
         {user && user.email === "admin@admin.com" && (
-          <NavLink to="/dashboard/register" className="header__nav-item">
+          <NavLink to="register" className="header__nav-item">
             <FaUser />
             Register User
           </NavLink>
         )}
         {user && (
-          <button className="btn" onClick={logoutHandler}>
+          <button className="btn btn-gray" onClick={logoutHandler}>
             <FaSignOutAlt /> Logout
           </button>
         )}

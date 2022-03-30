@@ -9,7 +9,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     if (!user) {
-      navigate("/");
+      navigate("/login");
     }
   }, [user, navigate]);
 

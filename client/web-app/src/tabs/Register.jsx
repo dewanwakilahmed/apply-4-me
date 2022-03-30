@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 // Redux Toolkit
@@ -21,11 +20,9 @@ const Register = () => {
   });
 
   const { name, email, password, password2 } = formData;
-
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { user, isLoading, isError, isSuccess, message } = useSelector(
+  const { isLoading, isSuccess, isError, message } = useSelector(
     (state) => state.auth
   );
 
@@ -34,12 +31,12 @@ const Register = () => {
       toast.error(message);
     }
 
-    if (isSuccess || user) {
-      navigate("/dashboard");
+    if (isSuccess && message) {
+      toast.success(message);
     }
 
     dispatch(reset());
-  }, [user, isError, isSuccess, message, navigate, dispatch]);
+  }, [isError, isSuccess, message, dispatch]);
 
   const changeHandler = (e) => {
     setFormData((prevState) => ({
