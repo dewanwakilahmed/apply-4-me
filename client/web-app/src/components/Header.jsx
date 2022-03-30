@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 // Redux Toolkit
@@ -8,7 +8,7 @@ import { logoutUser, reset } from "../features/auth/authSlice";
 import Logo from "../assets/logos/apply4me-logo-web.png";
 
 // Icons
-import { FaSignInAlt, FaSignOutAlt, FaUser } from "react-icons/fa";
+import { FaSignOutAlt, FaUser, FaSearch, FaUpload } from "react-icons/fa";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -29,17 +29,36 @@ const Header = () => {
           <img src={Logo} alt="Company Logo" className="company-logo" />
         </Link>
       </div>
-      <ul>
+      <nav className="header__nav">
         {user ? (
-          <li>
-            <button className="btn" onClick={logoutHandler}>
-              <FaSignOutAlt /> Logout
-            </button>
-          </li>
+          <>
+            <NavLink to="/dashboard" className="header__nav-item">
+              <FaSearch />
+              Search & Deliver
+            </NavLink>
+            <NavLink
+              to="/dashboard/upload-application"
+              className="header__nav-item"
+            >
+              <FaUpload />
+              Upload Application
+            </NavLink>
+          </>
         ) : (
           <></>
         )}
-      </ul>
+        {user && user.email === "admin@admin.com" && (
+          <NavLink to="/dashboard/register" className="header__nav-item">
+            <FaUser />
+            Register User
+          </NavLink>
+        )}
+        {user && (
+          <button className="btn" onClick={logoutHandler}>
+            <FaSignOutAlt /> Logout
+          </button>
+        )}
+      </nav>
     </header>
   );
 };

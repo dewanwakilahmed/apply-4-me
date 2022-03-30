@@ -5,8 +5,12 @@ import "react-toastify/dist/ReactToastify.css";
 
 // Pages
 import Login from "./pages/Login";
-import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+
+// Tabs
+import SearchDeliver from "./tabs/SearchDeliver";
+import UploadApplication from "./tabs/UploadApplication";
+import Register from "./tabs/Register";
 
 // Components
 import Header from "./components/Header";
@@ -19,8 +23,14 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="dashboard" element={<Dashboard />}>
+              <Route path="" element={<SearchDeliver />} />
+              <Route
+                path="upload-application"
+                element={<UploadApplication />}
+              />
+              <Route path="register" element={<Register />} />
+            </Route>
           </Routes>
         </div>
       </Router>
