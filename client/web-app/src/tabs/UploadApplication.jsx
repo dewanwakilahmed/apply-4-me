@@ -15,7 +15,6 @@ const UploadApplication = () => {
   const { name, type, dateOfFiling, dateOfAppointment, files } = formData;
 
   const changeHandler = (e) => {
-    console.log(formData);
     setFormData((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
@@ -32,7 +31,6 @@ const UploadApplication = () => {
         <h1>
           <FaFileUpload /> Application Upload
         </h1>
-        <p>Upload a processed Application</p>
       </section>
 
       <section className="form">

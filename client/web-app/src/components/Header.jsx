@@ -38,7 +38,7 @@ const Header = () => {
             </NavLink>
             <NavLink to="upload-application" className="header__nav-item">
               <FaUpload />
-              Upload Application
+              Application Upload
             </NavLink>
           </>
         ) : (
