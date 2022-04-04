@@ -165,7 +165,18 @@ h3 {
   padding-left: 12px;
 }
 
-/* Upload Application Page */
+input[type="file"]::file-selector-button {
+  padding: 0.2em 0.4em;
+  border-radius: 0.2em;
+  background-color: inherit;
+  transition: 1s;
+  border: none;
+  color: gray;
+}
+
+input[type="file"]::file-selector-button:hover {
+  color: white;
+}
 
 .btn {
   text-decoration: none;

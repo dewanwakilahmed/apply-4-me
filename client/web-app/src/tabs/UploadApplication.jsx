@@ -9,9 +9,10 @@ const UploadApplication = () => {
     type: "",
     dateOfFiling: new Date(),
     dateOfAppointment: new Date(),
+    files: null,
   });
 
-  const { name, type, dateOfFiling, dateOfAppointment } = formData;
+  const { name, type, dateOfFiling, dateOfAppointment, files } = formData;
 
   const changeHandler = (e) => {
     console.log(formData);
@@ -87,6 +88,20 @@ const UploadApplication = () => {
               name="dateOfAppointment"
               id="dateOfAppointment"
               value={dateOfAppointment}
+              onChange={changeHandler}
+              className="form-control"
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="files" className="form-label">
+              Application Files
+            </label>
+            <input
+              type="file"
+              multiple
+              name="files"
+              id="files"
+              value={files}
               onChange={changeHandler}
               className="form-control"
             />
