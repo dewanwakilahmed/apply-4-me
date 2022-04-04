@@ -73,6 +73,9 @@ const Login = () => {
       <section className="form">
         <form onSubmit={submitHandler}>
           <div className="form-group">
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
             <input
               type="email"
               name="email"
@@ -84,6 +87,9 @@ const Login = () => {
             />
           </div>
           <div className="form-group">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
             <input
               type="password"
               name="password"

@@ -81,6 +81,9 @@ const Register = () => {
       <section className="form">
         <form onSubmit={submitHandler}>
           <div className="form-group">
+            <label htmlFor="name" className="form-label">
+              Name
+            </label>
             <input
               type="text"
               name="name"
@@ -92,6 +95,9 @@ const Register = () => {
             />
           </div>
           <div className="form-group">
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
             <input
               type="email"
               name="email"
@@ -103,6 +109,9 @@ const Register = () => {
             />
           </div>
           <div className="form-group">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
             <input
               type="password"
               name="password"
@@ -114,6 +123,9 @@ const Register = () => {
             />
           </div>
           <div className="form-group">
+            <label htmlFor="password2" className="form-label">
+              Confirm Password
+            </label>
             <input
               type="password"
               name="password2"
