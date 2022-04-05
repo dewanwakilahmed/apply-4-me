@@ -104,7 +104,6 @@ h3 {
 .content {
   width: 70%;
   margin: 0 auto;
-  margin-bottom: 25px;
 }
 
 .form-group {
@@ -341,5 +340,9 @@ input[type="file"]::file-selector-button:hover {
 
   input[type="date"] {
     -webkit-appearance: textfield;
+  }
+
+  .form {
+    padding-bottom: 25px;
   }
 }
