@@ -7,8 +7,8 @@ const UploadApplication = () => {
   const [formData, setFormData] = useState({
     name: "",
     type: "",
-    dateOfFiling: new Date(),
-    dateOfAppointment: new Date(),
+    dateOfFiling: "2022-01-01",
+    dateOfAppointment: "2022-01-01",
     files: null,
   });
 
