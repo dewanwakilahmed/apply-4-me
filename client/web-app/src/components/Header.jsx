@@ -34,11 +34,11 @@ const Header = () => {
           <>
             <NavLink to="" className="header__nav-item">
               <FaSearch />
-              Search & Deliver
+              <span className="header__nav-item-title">Search & Deliver</span>
             </NavLink>
             <NavLink to="upload-application" className="header__nav-item">
               <FaUpload />
-              Application Upload
+              <span className="header__nav-item-title">Application Upload</span>
             </NavLink>
           </>
         ) : (
@@ -47,12 +47,13 @@ const Header = () => {
         {user && user.email === "admin@admin.com" && (
           <NavLink to="register" className="header__nav-item">
             <FaUser />
-            Register User
+            <span className="header__nav-item-title">Register User</span>
           </NavLink>
         )}
         {user && (
           <button className="btn btn-gray" onClick={logoutHandler}>
-            <FaSignOutAlt /> Logout
+            <FaSignOutAlt />{" "}
+            <span className="header__nav-item-title">Logout</span>
           </button>
         )}
       </nav>
